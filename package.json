@@ -1,0 +1,24 @@
+{
+  "name": "muber",
+  "version": "1.0.0",
+  "description": "A node/express server integrated with mongoDB",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon --exec 'mocha --recursive -R min'"
+  },
+  "keywords": [
+    "Express",
+    "Node",
+    "MongoDB"
+  ],
+  "author": "TonyTan",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "mocha": "^3.4.2",
+    "mongoose": "^4.11.4",
+    "nodemon": "^1.11.0",
+    "supertest": "^3.0.0"
+  }
+}
