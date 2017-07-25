@@ -5,12 +5,13 @@ module.exports = {
         res.send({hi: 'there'});
     },
 
-    create(req, res) {
+    create(req, res, next) {
         const driverPros = req.body; // todo save
 
         Driver.create(driverPros)
         .then(driver => {
             res.send(driver);
         })
+        .catch(next); // error handler by middleware
     }
 };
