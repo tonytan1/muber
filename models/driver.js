@@ -9,9 +9,6 @@ const DriverSchema = new Schema({
     driving: {
         type: Boolean,
         default: false
-    },
-    location: {
-
     }
 });
 
