@@ -43,12 +43,12 @@ module.exports = {
 
         Driver.geoNear({
                 type: 'Point',
-                coordinates: [lng, lat]
+                coordinates: [parseFloat(lng), parseFloat(lat)]
             }, {
                 spherical: true,
                 maxDistance: 200000
             })
-            .then(driver => res.status(204).send(driver))
+            .then(driver => res.send(driver))
             .catch(next); // error handler by middleware
     }
 };
