@@ -36,5 +36,19 @@ module.exports = {
         Driver.findByIdAndRemove(dirverId, driverProps)
             .then(driver => res.status(204).send(driver))
             .catch(next); // error handler by middleware
+    },
+
+    index(req, res, next) {
+        const { lng, lat } = req.query; // for example: 'http://google.com?lng=80&lat20'
+
+        Driver.geoNear({
+                type: 'Point',
+                coordinates: [lng, lat]
+            }, {
+                spherical: true,
+                maxDistance: 200000
+            })
+            .then(driver => res.status(204).send(driver))
+            .catch(next); // error handler by middleware
     }
 };
