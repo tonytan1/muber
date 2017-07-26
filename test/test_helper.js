@@ -12,6 +12,9 @@ before((done) => {
 beforeEach((done) => {
     const { drivers } = mongoose.connection.collections;
     drivers.drop()
+    .then(() => {
+        drivers.ensureIndex({ 'geometry.coordinates': '2dsphere'});
+    }) // make sure geo index won't be dropped
     .then(() => done())
     .catch(() => done());
 });
