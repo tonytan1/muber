@@ -16,4 +16,5 @@ routes(app);
 app.use((err, req, res, next) => { //next: goto next middleware
     res.status(422).send({ error: err.message});
 })
+
 module.exports = app;

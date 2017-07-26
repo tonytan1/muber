@@ -27,5 +27,14 @@ module.exports = {
             })
             .then(driver => res.send(driver))
             .catch(next); // error handler by middleware
+    },
+
+    delete(req, res, next) {
+        const dirverId = req.params.id;
+        const driverProps = req.body;
+
+        Driver.findByIdAndRemove(dirverId, driverProps)
+            .then(driver => res.status(204).send(driver))
+            .catch(next); // error handler by middleware
     }
 };
