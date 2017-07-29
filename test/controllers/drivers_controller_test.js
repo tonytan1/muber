@@ -36,7 +36,6 @@ describe('Driver controller', () => {
                 .end(() => {
                     Driver.findById(driver._id)
                         .then(driver => {
-                            console.log(driver);
                             assert(driver.driving === true);
                             done();
                         })
@@ -73,7 +72,8 @@ describe('Driver controller', () => {
                 request(app)
                     .get('/api/drivers?lng=-80&lat=25')
                     .end((err, res) => {
-                        console.log(res);
+                        assert(res.body.length === 1);
+                        assert(res.body[0].obj.email === 'miamiDriver@test.com');
                         done();
                     })
             })
